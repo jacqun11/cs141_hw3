@@ -25,7 +25,7 @@ class Vector {
   }
 
   ~Vector() {
-    // delete[] buf;
+    delete[] buf;
   }
 
   Vector(const Vector & v) : sz(v.sz), buf(new T[v.sz]) {
