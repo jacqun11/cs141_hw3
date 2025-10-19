@@ -3,11 +3,11 @@
 int main() // Here is a start:
 
 {
-    Vector<int> v1{1, 2};
-    Vector<int> v2{3, 4, 5};
-    size_t x = v1 * v2;
+    Vector<int> v2{1, 2, 3};
+    Vector<int> v1{4, 5, 6, 7};
+    Vector<int> x = v2 + v1;
 
-    cout << x << endl; // sould be (1 * 3) + (2 * 4) + 0 = 11
+    cout << x << endl; 
 
 
 

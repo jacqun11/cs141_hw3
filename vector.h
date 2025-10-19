@@ -67,65 +67,28 @@ class Vector {
     return buf[i];
   }
 
- 
-
-
-  /**
-
-   * Dot products the current vector with the passed vector.
-
-   * The dot product of two vectors is the sum of the products
-
-   * of the corresponding entries of two sequences of numbers.
-
-   *
-
-   * ex: T x = V1 * V2;
-
-   * dot product: [1, 2] * [3, 4, 5] = 1 * 3 + 2 * 4 + 0 = 11
-
-   * Assume an empty Vector will cause the product to be 0.
-
-   * @param v Vector on the right to dot product with
-
-   * @return a scalar value with type T (not a vector!) that is the dot product of the
-
-   *    two vectors
-
-  */
-
   T operator * (const Vector & v) const {
     T dot_product = 0;
 
     for (size_t i = 0; i < sz; i++) {
-        try {
-            dot_product += (buf[i] * v[i]);
-        }
-        catch (std::out_of_range&) {
-            continue;
-        }
+      T num1 = (i < sz) ? buf[i] : 0;
+      T num2 = (i < v.size()) ? v[i] : 0;
+      dot_product += (num1 * num2);
     }
     return dot_product;
   }
 
+  Vector operator + (const Vector & v) const {
+    size_t new_size = max(sz, v.size());
+    Vector<T> v3(new_size);
 
-
-
-  /**
-
-   * Adds the current vector with the passed vector and returns a new vector.
-
-   * ex: V3 = V1 + V2;
-
-   * addition: [1, 2, 3] + [4, 5, 6, 7] = [5, 7, 9, 7]
-
-   * @param v Vector on the right to perform addition with
-
-   * @return new vector where index i is the result of this[i] + v[i]
-
-  */
-
-  // Vector operator + (const Vector & v) const {}
+    for (size_t i = 0; i < new_size; i++) {
+      T num1 = (i < sz) ? buf[i] : 0;
+      T num2 = (i < v.size()) ? v[i] : 0;
+      v3[i] = num1 + num2;
+    }
+    return v3;
+  }
 
 
 
