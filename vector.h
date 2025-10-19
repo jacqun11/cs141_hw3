@@ -115,7 +115,13 @@ class Vector {
 
   */
 
-  inline friend Vector operator * (const int scale, const Vector & v) {}
+  inline friend Vector operator * (const int scale, const Vector & v) {
+    Vector<T> mult(v.size());
+    for (size_t i = 0; i < mult.size(); i++) {
+      mult[i] = v[i] * scale;
+    }
+    return mult;
+  }
 
 
 

@@ -3,17 +3,9 @@
 int main() // Here is a start:
 
 {
-    Vector<double> v1{1.1, 2.2, 3.3};
-    Vector<int> v2{4, 5, 6};
-    Vector<double> v3{2.5, 1.2, 2.2};
-    Vector<int> v4(v2);
-    Vector<double> v5{1.1, 2.2, 3.3};
-    Vector<int> v6{7, 8};
-
-    cout << (v1 != v5) << endl; // true
-    cout << (v1 != v3) << endl; // false
-    cout << (v2 != v4) << endl; // true
-    cout << (v2 != v6) << endl; // false
+    Vector<int> v1{1, 2, 3};
+    Vector<int> v2 = 20 * v1;
+    cout << v2 << endl;
 
 
 
