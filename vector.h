@@ -98,65 +98,21 @@ class Vector {
     return false;
   }
 
-
-  /**
-
-   * Multiplies each element in current vector with the passed integer and returns a new vector.
-
-   * ex: V1 = 20 * V2; it is important that 20 is on the left!
-
-   * 20 * [1, 2, 3] = [20, 40, 60]
-
-   * @param scale integer to multiple each element of vector v
-
-   * @param v Vector on the right to perform multiplication on
-
-   * @return new vector where index i is the result of v[i] * scale
-
-  */
-
   inline friend Vector operator * (const int scale, const Vector & v) {
-    Vector<T> mult(v.size());
-    for (size_t i = 0; i < mult.size(); i++) {
+    Vector<T> mult(v.sz);
+    for (size_t i = 0; i < mult.sz; i++) {
       mult[i] = v[i] * scale;
     }
     return mult;
   }
 
-
-
-  /**
-
-   * Adds each element in the current vector with the passed integer and returns a new vector.
-
-   * ex: V1 = 20 + V2; it is important that 20 is on the left!
-
-   * 20 + [1, 2, 3] = [21, 22, 23]
-
-   * @param adder integer to add to each element of vector v
-
-   * @param v Vector on the right to perform addition on
-
-   * @return new vector where index i is the result of v[i] + adder
-
-  */
-
-  // inline friend Vector operator + (const int adder, const Vector & v) {}
-
-
-  /**
-
-   * Allows the << operator to correctly print out the vector.
-
-   * ex: cout << V2; -> (v[0], v[1], v[2], ... v[sz-1])
-
-   * @param o ostream to print the elems of the array, usage is o << thingToPrint;
-
-   * @param v vector that will be printed out
-
-   * @return the ostream passed in
-
-  */
+  inline friend Vector operator + (const int adder, const Vector & v) {
+    Vector<T> add(v.sz);
+    for (size_t i = 0; i < add.sz; i++) {
+      add[i] = v[i] + adder;
+    }
+    return add;
+  }
 
   inline friend ostream& operator << (ostream & o, const Vector & v) {
     o << "(";
