@@ -7,13 +7,7 @@
 using namespace std;
 
 
-/* Commented by Safeeullah Saifuddin, Fall 2022 */
-
 /** ADVISED ORDER OF IMPLEMENTATION
-
- * 1. Constructors
-
- * 2. Inserter (<<) -> allows you to print & see what is in the vector throughout development
 
  * 3. Write test cases that use some of the constructors and print those vectors out
 
@@ -30,97 +24,34 @@ using namespace std;
 */
 
 
-template <typename T> // We will only be testing int and double
-
+template <typename T>
 class Vector {
 
  private:
 
-  /**
-
-   * size_t sz   size of the vector i.e the amount of elements in the vector
-
-  */
-
   size_t sz;
-
-
-  /**
-
-   * T* buf  pointer to the base (first element) of a dynamically allocated array
-
-   *    Be careful to manage its memory wisely (calling del[] when necessary)
-
-  */
-
   T* buf;  
-
 
  public:
 
-  /**
+  Vector(size_t sz) : sz(sz), buf(new T[sz]) {}
 
-   * Constructs a vector of size sz
+  Vector(initializer_list<T> L) : sz(L.size()), buf(new T[L.size()]) {
+    size_t i = 0;
+    for (auto &x : L) {
+        buf[i++] = x;
+    }
+  }
 
-   *
+  ~Vector() {
+    // delete[] buf;
+  }
 
-   * ex: Vector v(10); -> constructs a 10 elem Vector
-
-   * @param sz size of vector
-
-  */
-
-  Vector(size_t sz) {}
-
-
-
-  /**
-
-   * Constructs a vector from a list of elements
-
-   *
-
-   * ex: Vector v1{1, 2, 3}; -> creates a vector with values 1, 2, 3 and size 3
-
-   * @param L a list of values to initialize our vector
-
-   *   - L.size() gives the list's size
-
-   *   - You can iterate through it using an iterator
-
-  */
-
-  Vector(initializer_list<T> L) {}
-
-
-
-/**
-
-   * Destructs the object at the end of the object's lifecycle
-
-   *  - Automatically called
-
-   * Deallocate the array here.
-
-   * Some versions of valgrind report 72704 bytes in one still-reachable block.  
-
-   * You can ignore that.
-
-  */
-
-  ~Vector() {}
-
-
-
-  /**
-
-   * Copy constructor; makes a new Vector by deep copying the vector passed to it
-
-   * ex: Vector v2{v1};
-
-  */
-
-  Vector(const Vector & v) {}
+  Vector(const Vector & v) : sz(v.sz), buf(new T[v.sz]) {
+    for (size_t i = 0; i < sz; ++i) {
+        buf[i] = v.buf[i];
+    }
+  }
 
 
 
@@ -134,8 +65,7 @@ class Vector {
 
   */
 
-  size_t size() const {}
-
+  // size_t size() const {}
 
 
   /**
@@ -152,7 +82,7 @@ class Vector {
 
   */
 
-  T & operator [] (const int i) {}
+  // T & operator [] (const int i) {}
 
 
 
@@ -172,7 +102,7 @@ class Vector {
 
   */
 
-  T operator [] (const int i) const {}
+  // T operator [] (const int i) const {}
 
  
 
@@ -201,7 +131,7 @@ class Vector {
 
   */
 
-  T operator * (const Vector & v) const {}
+  // T operator * (const Vector & v) const {}
 
 
 
@@ -219,7 +149,7 @@ class Vector {
 
   */
 
-  Vector operator + (const Vector & v) const {}
+  // Vector operator + (const Vector & v) const {}
 
 
 
@@ -237,7 +167,7 @@ class Vector {
 
   */
 
-  const Vector & operator = (const Vector & v) {}
+  // const Vector & operator = (const Vector & v) {}
 
  
 
@@ -256,7 +186,7 @@ class Vector {
 
   */
 
-  bool operator == (const Vector & v) const {}
+  // bool operator == (const Vector & v) const {}
 
 
 
@@ -274,7 +204,7 @@ class Vector {
 
   */
 
-  bool operator != (const Vector & v) const {}
+  // bool operator != (const Vector & v) const {}
 
 
   /**
@@ -293,7 +223,7 @@ class Vector {
 
   */
 
-  inline friend Vector operator * (const int scale, const Vector & v) {}
+  // inline friend Vector operator * (const int scale, const Vector & v) {}
 
 
 
@@ -313,7 +243,7 @@ class Vector {
 
   */
 
-  inline friend Vector operator + (const int adder, const Vector & v) {}
+  // inline friend Vector operator + (const int adder, const Vector & v) {}
 
 
   /**
@@ -330,10 +260,17 @@ class Vector {
 
   */
 
-  inline friend ostream& operator << (ostream & o, const Vector & v) {}
-
- 
-
+  inline friend ostream& operator << (ostream & o, const Vector & v) {
+    o << "(";
+    for (size_t i = 0; i < v.sz; i++) {
+        o << v.buf[i];
+        if (i != v.sz - 1) {
+            o << ", ";
+        }
+    }
+    o << ")";
+    return o;
+  }
 };
 
 #endif
