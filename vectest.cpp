@@ -5,9 +5,9 @@ int main() // Here is a start:
 {
     Vector<int> v2{1, 2, 3};
     Vector<int> v1{4, 5, 6, 7};
-    Vector<int> x = v2 + v1;
+    // v2 = v1;
 
-    cout << x << endl; 
+    cout << v2 << endl; 
 
 
 

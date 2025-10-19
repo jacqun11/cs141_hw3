@@ -1,27 +1,8 @@
 #ifndef VECTOR_H
-
 #define VECTOR_H
 
 #include <iostream>
-
 using namespace std;
-
-
-/** ADVISED ORDER OF IMPLEMENTATION
-
- * 3. Write test cases that use some of the constructors and print those vectors out
-
- * 4. Write a test case for a function
-
- * 5. Implement the function and test until you are confident on its correctness
-
- * 6. Repeat from 4 until all methods are implemented and tested
-
- * 7. Implement the destructor last; if there are still errors,
-
-      then you know it is due to memory management
-
-*/
 
 
 template <typename T>
@@ -90,23 +71,16 @@ class Vector {
     return v3;
   }
 
+  const Vector & operator = (const Vector & v) {
+    delete[] buf;
+    sz = v.size();
+    buf = new T[sz];
 
-
-  /**
-
-   * Destructs the current vector and deep copies the passed vector
-
-   * ex: V1 = V2;
-
-   * V1 could be an already existing vector, be sure to clean it up before the deep copy
-
-   * @param v Vector on the right to deep copy
-
-   * @return reference to the current object
-
-  */
-
-  // const Vector & operator = (const Vector & v) {}
+    for (size_t i = 0; i < sz; i++) {
+      buf[i] = v[i];
+    }
+    return *this;
+  }
 
  
 
