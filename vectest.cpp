@@ -3,9 +3,13 @@
 int main() // Here is a start:
 
 {
-    Vector<int> v1(3);
-    Vector<double> v2{1.1, 1.2, 1.3, 1.4};
-    Vector<int> v3{v1};
+    Vector<int> v1{1, 2};
+    Vector<int> v2{3, 4, 5};
+    size_t x = v1 * v2;
+
+    cout << x << endl; // sould be (1 * 3) + (2 * 4) + 0 = 11
+
+
 
     // cout << "v1 = " << v1 << endl;
     // cout << "v2 = " << v2 << endl;

@@ -94,7 +94,20 @@ class Vector {
 
   */
 
-  // T operator * (const Vector & v) const {}
+  T operator * (const Vector & v) const {
+    T dot_product = 0;
+
+    for (size_t i = 0; i < sz; i++) {
+        try {
+            dot_product += (buf[i] * v[i]);
+        }
+        catch (std::out_of_range&) {
+            continue;
+        }
+    }
+    return dot_product;
+  }
+
 
 
 
