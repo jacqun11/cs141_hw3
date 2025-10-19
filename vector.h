@@ -82,42 +82,21 @@ class Vector {
     return *this;
   }
 
- 
+  bool operator == (const Vector & v) const {
+    if (sz != v.size()) return false;
+    for (size_t i = 0; i < sz; i++) {
+      if (buf[i] != v[i]) return false;
+    }
+    return true;
+  }
 
-
-  /**
-
-   * Determines whether the current vector is equivalent to the passed vector
-
-   * ex: bool isV1AndV2Same = V1 == V2;
-
-   * @param v Vector on the right to compare current with
-
-   * @return true if both vectors are deeply equivalent (elem by elem comparison)
-
-   * and false otherwise
-
-  */
-
-  // bool operator == (const Vector & v) const {}
-
-
-
-  /**
-
-   * Determines whether the current vector is not equivalent to the passed vector
-
-   * ex: bool isV1AndV2Different = V1 != V2;
-
-   * @param v Vector on the right to compare current with
-
-   * @return false if both vectors are deeply equivalent (elem by elem comparison)
-
-   * and true otherwise
-
-  */
-
-  // bool operator != (const Vector & v) const {}
+  bool operator != (const Vector & v) const {
+    if (sz != v.size()) return true;
+    for (size_t i = 0; i < sz; i++) {
+      if (buf[i] != v[i]) return true;
+    }
+    return false;
+  }
 
 
   /**
@@ -136,7 +115,7 @@ class Vector {
 
   */
 
-  // inline friend Vector operator * (const int scale, const Vector & v) {}
+  inline friend Vector operator * (const int scale, const Vector & v) {}
 
 
 
