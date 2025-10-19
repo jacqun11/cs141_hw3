@@ -4,12 +4,16 @@ int main() // Here is a start:
 
 {
     Vector<int> v1(3);
-    Vector<double> v2{1.1, 1.2, 1.3};
+    Vector<double> v2{1.1, 1.2, 1.3, 1.4};
     Vector<int> v3{v1};
 
     cout << "v1 = " << v1 << endl;
     cout << "v2 = " << v2 << endl;
     cout << "v3 = " << v3 << endl;
+
+    cout << "size of v1 = " << v1.size() << endl;
+    cout << "size of v2 = " << v2.size() << endl;
+    cout << "size of v3 = " << v3.size() << endl;
 
 
 //         Vector<int> intVec{1,3,5,7,9};

@@ -53,19 +53,9 @@ class Vector {
     }
   }
 
-
-
-  /**
-
-   * Returns the size of the vector
-
-   * ex: Vector v1(10); v1.size(); -> will return 10
-
-   * @return size of vector
-
-  */
-
-  // size_t size() const {}
+  size_t size() const {
+    return sz;
+  }
 
 
   /**
