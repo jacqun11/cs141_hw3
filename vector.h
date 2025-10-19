@@ -57,42 +57,15 @@ class Vector {
     return sz;
   }
 
+  T & operator [] (const int i) {
+    if (i < 0 || i >= sz) throw out_of_range("Index out of bounds.");
+    return buf[i];
+  }
 
-  /**
-
-  * Overloads the [] operator and returns a reference to the value at index i in the
-
-  * dynamically allocated array. This would be used to change the value at that index.
-
-  * Throws an error when accessing index out of bounds
-
-  * ex: v1[2] = 3;
-
-  * @param i index of elem in buf that will be accessed
-
-  */
-
-  // T & operator [] (const int i) {}
-
-
-
-  /**
-
-  * Overloads the [] operator and returns the value of the elem at index i in the
-
-  * dynamically allocated array. This would be used to access the value at that index
-
-  * without modifying it.
-
-  * Throws an error when accessing index out of bounds
-
-  * ex: T elemAtInd3 = v1[3];
-
-  * @param i index of elem in buf that will be accessed
-
-  */
-
-  // T operator [] (const int i) const {}
+  T operator [] (const int i) const {
+    if (i < 0 || i >= sz) throw out_of_range("Index out of bounds.");
+    return buf[i];
+  }
 
  
 

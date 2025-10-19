@@ -7,13 +7,17 @@ int main() // Here is a start:
     Vector<double> v2{1.1, 1.2, 1.3, 1.4};
     Vector<int> v3{v1};
 
-    cout << "v1 = " << v1 << endl;
-    cout << "v2 = " << v2 << endl;
-    cout << "v3 = " << v3 << endl;
+    // cout << "v1 = " << v1 << endl;
+    // cout << "v2 = " << v2 << endl;
+    // cout << "v3 = " << v3 << endl;
 
-    cout << "size of v1 = " << v1.size() << endl;
-    cout << "size of v2 = " << v2.size() << endl;
-    cout << "size of v3 = " << v3.size() << endl;
+    // cout << "size of v1 = " << v1.size() << endl;
+    // cout << "size of v2 = " << v2.size() << endl;
+    // cout << "size of v3 = " << v3.size() << endl;
+
+    // cout << "v2[2] = " << v2[2] << endl;
+    // cout << "v1[-1] = " << v1[-1] << endl;
+    // cout << "v2[4] = " << v2[4] << endl;
 
 
 //         Vector<int> intVec{1,3,5,7,9};
